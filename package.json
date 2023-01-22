@@ -1,0 +1,21 @@
+{
+  "name": "open-doc",
+  "version": "1.0.0",
+  "description": "Open Source application for documentation",
+  "main": "index.js",
+  "author": "Nik Tysiachnyi",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "app/*"
+  ],
+  "scripts": {
+    "install:all": "yarn --cwd app/ui install && yarn --cwd app/api install",
+    "dev:ui": "yarn --cwd app/ui dev",
+    "dev:api": "yarn --cwd app/api start",
+    "dev": "npm-run-all --parallel dev_ui dev_api"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
