@@ -1,0 +1,8 @@
+.build/*
+.next
+node_modules/
+.coverage
+.env
+.next
+.idea
+.vercel
