@@ -3,6 +3,7 @@ const cors = require("cors");
 const auth = require("./auth");
 const authRoute = require("./src/routes/auth.js");
 const projectRoute = require("./src/routes/project.js");
+const profileRoute = require("./src/routes/profile.js");
 const connectToDB = require("./src/utils/config.js");
 const PORT = 8080;
 
@@ -32,7 +33,10 @@ app.get("/api/check", async (req, res) => {
 });
 
 app.use("/api/auth", authRoute);
+
 app.use("/api/project", projectRoute);
+
+app.use("/api/profile", profileRoute);
 
 // free endpoint
 app.get("/api/free-endpoint", (req, res) => {

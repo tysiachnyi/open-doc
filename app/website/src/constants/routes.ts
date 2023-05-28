@@ -10,4 +10,5 @@ export const ROUTES = {
   LIST_PROJECTS: "/list-projects",
   CREATE_PROJECT: "/create-project",
   VIEW_PROJECT: "/project",
+  PROFILE: "/profile",
 };
