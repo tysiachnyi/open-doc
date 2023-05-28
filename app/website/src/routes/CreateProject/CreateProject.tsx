@@ -46,7 +46,7 @@ const CreateProject = () => {
   };
 
   return (
-    <div>
+    <div className="p-28">
       <h1 className="text-center">Create Project</h1>
 
       {/* tailwindcss succes message */}

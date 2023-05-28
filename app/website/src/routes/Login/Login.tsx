@@ -35,8 +35,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="flex flex-col items-center justify-center w-1/2 p-8 bg-white rounded shadow">
+    <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-1/2 p-8 bg-white rounded shadow-2xl">
         <h1 className="text-2xl font-bold">Login</h1>
         {login && (
           <p className="text-green-600">You Are Logined Successfully</p>

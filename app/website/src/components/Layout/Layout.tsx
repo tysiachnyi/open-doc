@@ -6,6 +6,7 @@ import Cookies from "universal-cookie";
 import { Fragment, useEffect, useState } from "react";
 import { Nagivation } from "../../types/Layout.types";
 import Button from "../Buttons/Button";
+import Footer from "../Footer";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
@@ -110,6 +111,9 @@ function Layout() {
                       active ? "bg-gray-100" : "",
                       "block px-4 py-2 text-sm text-gray-700"
                     )}
+                    onClick={() => {
+                      navigate(ROUTES.SETTINGS);
+                    }}
                   >
                     Settings
                   </a>
@@ -271,6 +275,7 @@ function Layout() {
           </div>
         </main>
       </div>
+      <Footer />
     </div>
   );
 }

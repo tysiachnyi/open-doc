@@ -13,6 +13,7 @@ import ListProjects from "./routes/ListProjects/ListProjects";
 import CreateProject from "./routes/CreateProject/CreateProject";
 import ViewProject from "./routes/ViewProject/ViewProject";
 import Profile from "./routes/Profile/Profile";
+import Settings from "./routes/Settings";
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path={ROUTES.REGISTER} element={<Register />} />
-        <Route path={ROUTES.PROFILE} element={<Profile />} />
 
         <Route path={ROUTES.LOGIN} element={<Login />} />
         <Route path={ROUTES.ABOUT} element={<About />} />
         {/* Protected Routes START */}
         <Route element={<ProtectedRoutes />}>
+          <Route path={ROUTES.PROFILE} element={<Profile />} />
+          <Route path={ROUTES.SETTINGS} element={<Settings />} />
           <Route path={ROUTES.LIST_PROJECTS} element={<ListProjects />} />
           <Route path={ROUTES.CREATE_PROJECT} element={<CreateProject />} />
           <Route

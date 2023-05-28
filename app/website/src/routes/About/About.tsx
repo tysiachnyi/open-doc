@@ -4,8 +4,10 @@ const About = () => {
       <div className="text-gray-800 text-2xl">
         <h1 className="mb-4">About Me</h1>
         <p className="mb-6">
-          I'm Nik Tysiachnyi, a full-stack developer, and I'm thrilled to
-          introduce you to my open-source project! 🚀
+          Hi! 👋 I'm Nik Tysiachnyi, a full-stack developer from 🇺🇦 Living in 🇩🇪
+        </p>
+        <p className="mb-6">
+          And I'm thrilled to introduce you to my open-source project! 🚀
         </p>
         <p className="mb-6">
           As a passionate developer, I believe in the power of collaboration and
