@@ -10,9 +10,8 @@
     "app/*"
   ],
   "scripts": {
-    "install:all": "yarn --cwd app/api install && yarn --cwd app/website install",
-    "dev:website": "yarn --cwd app/website dev",
-    "dev:api": "yarn --cwd app/api start",
+    "dev:website": "npm -prefix app/website run dev",
+    "dev:api": "npm -prefix app/api run dev",
     "dev": "concurrently 'npm -prefix app/website run dev' 'npm -prefix app/api run dev'"
   },
   "devDependencies": {

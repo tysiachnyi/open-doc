@@ -37,7 +37,7 @@ function App() {
             element={<ViewDocumentation />}
           />
           <Route
-            path={ROUTES.CREATE_DOCUMENTATION}
+            path={`${ROUTES.CREATE_DOCUMENTATION}/:id`}
             element={<CreateDocumentation />}
           />
         </Route>

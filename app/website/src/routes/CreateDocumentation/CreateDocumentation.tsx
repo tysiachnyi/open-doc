@@ -2,11 +2,25 @@ import Button from "../../components/Buttons/Button";
 import { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { fetchService } from "../../utils/AxiosInterceptor";
+import { getUserData } from "../../utils/helper";
 
 const CreateDocumentation = () => {
   const [value, setValue] = useState("");
+  const [title, setTitle] = useState("");
   const handleCreateDocumentation = () => {
-    console.log(value);
+    const getIdFromUrl = window.location.pathname.split("/")[2];
+    const data = {
+      title: title,
+      content: value,
+      projectId: getIdFromUrl,
+      authorId: getUserData()?.id,
+    };
+    console.log(data);
+
+    fetchService.post("/documentation/create", data).then((res) => {
+      console.log(res);
+    });
   };
 
   const modules = {
@@ -46,6 +60,8 @@ const CreateDocumentation = () => {
           <div className="pt-2 pb-2">Title</div>
           <input
             className="p-2 border rounded"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             type="text"
             id="title"
             placeholder="Title"
