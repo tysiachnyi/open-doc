@@ -1,9 +1,9 @@
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import { UserCircleIcon } from "@heroicons/react/outline";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import Cookies from "universal-cookie";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { Nagivation } from "../../types/Layout.types";
 import Button from "../Buttons/Button";
 import Footer from "../Footer";

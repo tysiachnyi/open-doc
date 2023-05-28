@@ -33,9 +33,13 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      <h1>{profile.name}</h1>
-      <h1>{profile.email}</h1>
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        Name: {profile.name}
+      </div>
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        Email: {profile.email}
+      </div>
     </div>
   );
 };
