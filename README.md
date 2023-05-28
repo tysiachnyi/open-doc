@@ -21,7 +21,7 @@ Back: NodeJS, Express, MongoDB
 
 clone repo
 
-yarn dev
+npm run dev
 
 ## Usage
 
