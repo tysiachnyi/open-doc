@@ -46,88 +46,89 @@ const CreateProject = () => {
   };
 
   return (
-    <div className="p-28">
-      <h1 className="text-center">Create Project</h1>
+    <div className="flex items-center justify-center">
+      <div className="w-[500px] p-6 bg-white rounded shadow-lg">
+        <h1 className="text-3xl font-bold mb-6 text-center">Create Project</h1>
 
-      {/* tailwindcss succes message */}
-      {success && (
-        <div className="flex justify-center">
-          <div
-            className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-            role="alert"
-          >
-            <span className="block sm:inline">
-              Project created successfully
-            </span>
-            <span className="absolute top-0 bottom-0 right-0 px-4 py-3"></span>
+        {/* Success message */}
+        {success && (
+          <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            <span className="block">Project created successfully</span>
           </div>
-        </div>
-      )}
+        )}
 
-      <div className="p-4">
-        {/* Input with label */}
-        <div className="flex justify-center flex-col">
-          <div className="flex justify-between">
-            <label htmlFor="title">Title</label>
+        {/* Input fields */}
+        <form className="space-y-4">
+          <div>
+            <label htmlFor="title" className="text-lg">
+              Title
+            </label>
             {errors.title && (
-              <p className="text-center text-red-500">Title is required</p>
+              <p className="text-red-500 text-sm">Title is required</p>
             )}
+            <input
+              maxLength={30}
+              value={formData.title}
+              onChange={(e) =>
+                setFormData({ ...formData, title: e.target.value })
+              }
+              className={`w-full px-4 py-2 border rounded ${
+                errors.title ? "border-red-500" : "border-gray-300"
+              }`}
+              type="text"
+              id="title"
+              placeholder="Title"
+            />
           </div>
 
-          <input
-            maxLength={30}
-            value={formData.title}
-            onChange={(e) =>
-              setFormData({ ...formData, title: e.target.value })
-            }
-            className={
-              errors.title
-                ? "p-2 border border-red-500 rounded"
-                : "p-2 border rounded"
-            }
-            type="text"
-            id="title"
-            placeholder="Title"
-          />
-
-          <div className="flex justify-between">
-            <label htmlFor="title">Description</label>
+          <div>
+            <label htmlFor="description" className="text-lg">
+              Description
+            </label>
             {errors.description && (
-              <p className="text-center text-red-500">
-                Description is required
-              </p>
+              <p className="text-red-500 text-sm">Description is required</p>
             )}
+            <textarea
+              value={formData.description}
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
+              className={`w-full px-4 py-2 border rounded ${
+                errors.description ? "border-red-500" : "border-gray-300"
+              }`}
+              maxLength={50}
+              id="description"
+              placeholder="Description"
+              rows={4}
+            />
           </div>
-          <input
-            value={formData.description}
-            onChange={(e) =>
-              setFormData({ ...formData, description: e.target.value })
-            }
-            className={
-              errors.description
-                ? "p-2 border border-red-500 rounded"
-                : "p-2 border rounded"
-            }
-            maxLength={50}
-            id="description"
-            placeholder="Description"
-          />
 
-          <label htmlFor="title">Type</label>
-          <select
-            value={formData.type}
-            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-            className="p-2 border rounded"
-            id="title"
-            placeholder="Title"
-          >
-            <option value="front_end">Front End</option>
-            <option value="back_end">Back End</option>
-          </select>
-        </div>
-        <div className="flex justify-center p-4">
-          <Button text="Create" theme="primary" onClick={handleCreateProject} />
-        </div>
+          <div>
+            <label htmlFor="type" className="text-lg">
+              Type
+            </label>
+            <select
+              value={formData.type}
+              onChange={(e) =>
+                setFormData({ ...formData, type: e.target.value })
+              }
+              className="w-full px-4 py-2 border rounded"
+              id="type"
+            >
+              <option value="front_end">Front End</option>
+              <option value="back_end">Back End</option>
+            </select>
+          </div>
+
+          {/* Create button */}
+          <div className="flex justify-center">
+            <Button
+              text="Create"
+              theme="primary"
+              onClick={handleCreateProject}
+            />
+          </div>
+        </form>
       </div>
     </div>
   );
