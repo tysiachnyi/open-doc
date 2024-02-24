@@ -35,7 +35,7 @@ function App() {
             element={<ViewProject />}
           />
           <Route
-            path={ROUTES.VIEW_DOCUMENTATION}
+            path={`${ROUTES.VIEW_DOCUMENTATION}/:id`}
             element={<ViewDocumentation />}
           />
           <Route

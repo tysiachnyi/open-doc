@@ -1,6 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Buttons/Button";
+import { isUserLoggedIn } from "../../utils/helper";
+import { ROUTES } from "../../constants/routes";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    if (isUserLoggedIn()) {
+      navigate(ROUTES.LIST_PROJECTS);
+    } else {
+      navigate(ROUTES.LOGIN);
+    }
+  }
+  
+ 
   return (
     <div className="bg-slate-100 flex items-center justify-center p-10">
       <div className="text-gray-800 text-2xl">
@@ -27,9 +41,7 @@ const Home = () => {
         <Button
           text="Get Started"
           theme="primary"
-          onClick={() => {
-            window.location.href = "/login";
-          }}
+          onClick={handleGetStarted}
         />
       </div>
     </div>

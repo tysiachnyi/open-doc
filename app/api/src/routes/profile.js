@@ -2,7 +2,6 @@ const router = require("express").Router();
 const UserSchema = require("../models/User");
 
 // GET USER
-
 router.get("/", async (req, res) => {
   console.log("req.query.id", req.query.id);
   try {

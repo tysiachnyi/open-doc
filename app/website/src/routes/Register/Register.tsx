@@ -1,27 +1,29 @@
-import axios from "axios";
 import { useState } from "react";
-import { LoginResponse } from "../../types/response.types";
 import { fetchService } from "../../utils/AxiosInterceptor";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(undefined as string | undefined);
   const [register, setRegister] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: { preventDefault: () => void; } ) => {
     try {
-      e.preventDefault();
-
       await fetchService.post("auth/register", {
         email,
         name,
         password,
       });
       setRegister(true);
+      navigate(ROUTES.LOGIN);
+
     } catch (error) {
+      setError('test');
       console.log(error);
     }
   };
@@ -30,13 +32,17 @@ const Register = () => {
     <div className="flex items-center justify-center">
       <form
         className="flex flex-col items-center justify-center w-1/2 p-8 bg-white rounded shadow-2xl"
-        onSubmit={handleSubmit}
       >
         <h1 className="text-2xl font-bold">Register</h1>
         <div>
           <p>
             {register && (
               <p className="text-green-600">You Are Registered Successfully</p>
+            )}
+          </p>
+          <p>
+            {error && (
+              <p className="text-red-600">Something gone wrong</p>
             )}
           </p>
         </div>
@@ -74,6 +80,7 @@ const Register = () => {
           className="w-full p-2 mt-4 text-white bg-blue-500 rounded hover:bg-blue-600"
           type="submit"
           disabled={loading}
+          onClick={handleSubmit}
         >
           Register
         </button>

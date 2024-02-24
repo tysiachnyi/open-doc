@@ -7,3 +7,11 @@ export const getUserData = (): ProfileLocalType | null => {
   }
   return null;
 };
+
+export const isUserLoggedIn = (): boolean => {
+  const user = getUserData();
+  if (user) {
+    return true;
+  }
+  return false;
+}
