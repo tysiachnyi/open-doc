@@ -12,9 +12,8 @@ const Home = () => {
     } else {
       navigate(ROUTES.LOGIN);
     }
-  }
-  
- 
+  };
+
   return (
     <div className="bg-slate-100 flex items-center justify-center p-10">
       <div className="text-gray-800 text-2xl">
@@ -38,11 +37,7 @@ const Home = () => {
           clients or stakeholders. It's the all-in-one solution for your
           documentation needs.
         </p>
-        <Button
-          text="Get Started"
-          theme="primary"
-          onClick={handleGetStarted}
-        />
+        <Button text="Get Started" theme="primary" onClick={handleGetStarted} />
       </div>
     </div>
   );
