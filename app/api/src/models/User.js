@@ -13,6 +13,18 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  location: {
+    type: String,
+    required: false,
+  },
+  role: {
+    type: String,
+    required: false,
+  },
+  mode: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("UserSchema", UserSchema);
