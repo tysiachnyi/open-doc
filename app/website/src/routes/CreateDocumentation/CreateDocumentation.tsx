@@ -4,10 +4,13 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { fetchService } from "../../utils/AxiosInterceptor";
 import { getUserData } from "../../utils/helper";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants/routes";
 
 const CreateDocumentation = () => {
   const [value, setValue] = useState("");
   const [title, setTitle] = useState("");
+  const navigate = useNavigate();
   const handleCreateDocumentation = () => {
     const getIdFromUrl = window.location.pathname.split("/")[2];
     const data = {
@@ -21,6 +24,8 @@ const CreateDocumentation = () => {
     fetchService.post("/documentation/create", data).then((res) => {
       console.log(res);
     });
+
+    navigate(`${ROUTES.VIEW_PROJECT}/${getIdFromUrl}`);
   };
 
   const modules = {
