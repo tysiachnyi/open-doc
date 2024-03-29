@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const auth = require("./auth");
 const authRoute = require("./src/routes/auth.js");
 const projectRoute = require("./src/routes/project.js");
 const profileRoute = require("./src/routes/profile.js");
@@ -40,16 +39,6 @@ app.use("/api/project", projectRoute);
 app.use("/api/profile", profileRoute);
 
 app.use("/api/documentation", documentationRoute);
-
-// free endpoint
-app.get("/api/free-endpoint", (req, res) => {
-  res.status(200).json({ message: "You are Free to access me anytime" });
-});
-
-// authentication endpoint
-app.get("/api/auth-endpoint", auth, (req, res) => {
-  res.status(200).json({ message: "You are Auth to access me anytime" });
-});
 
 // LISTEN TO PORT
 app.listen(PORT, () => {
